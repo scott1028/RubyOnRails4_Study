@@ -1,4 +1,11 @@
 # Rails4 Study
+~~~
+ref: http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json
+ref: http://stackoverflow.com/questions/4443218/ror-nested-include-to-include-sub-resources-in-to-xml-to-json
+~~~
+render json: @people, :include => [:roles => { include: [:privileges] } ]
+~~~
+~~~
 - Controller Test Nestet JSON Operation Sample.
 - Use Params.permit filter JSON Field.
 ~~~
@@ -13,7 +20,10 @@
     "user_id": 1,
     "role_id": "test xxxxx",
     "created_at": "2015-08-22T03:17:59.023Z",
-    "updated_at": "2015-08-22T03:17:59.023Z"
+    "updated_at": "2015-08-22T03:17:59.023Z",
+    "privileges": [
+
+    ]
   }]
 }
 ~~~

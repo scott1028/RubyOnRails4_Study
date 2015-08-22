@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
     @people = Person.all
     respond_to do |format|
       format.json { 
-        render json: @people, :include => [:roles]
+        render json: @people, :include => [:roles => { include: [:privileges] } ]
       }
     end
   end
@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
   def show
     respond_to do |format|
       format.json {
-        render json: @person, :include => [:roles]
+        render json: @person, :include => [:roles => { include: [:privileges] } ]
       }
     end
   end
@@ -90,12 +90,14 @@ class PeopleController < ApplicationController
     # ref: https://github.com/rails/strong_parameters 
     # ref: http://stackoverflow.com/questions/18436741/rails-4-strong-parameters-nested-objects
     # ref: http://www.createdbypete.com/articles/working-with-nested-forms-and-a-many-to-many-association-in-rails-4/
+    # ref: http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json
     def person_params
       # 結構似乎跟送上來的不大一樣, 要稍作轉換, 還要吻合 Nested Attributes 架構
       # For each hash that "does not have an id" key a new record will be instantiated, unless the hash also contains a "_destroy" key that evaluates to "true".
       # 果資料沒有 id 欄位將自動轉成建立
       # ref: http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html
+      params[:roles].each do |role| role[:privileges_attributes] = role[:privileges] end
       params[:person][:roles_attributes] = params[:roles]
-      params.require(:person).permit(:label, :content, :roles_attributes => [:id, :role_id, :user_id])
+      params.require(:person).permit(:label, :content, :roles_attributes => [:id, :role_id, :user_id, :privileges_attributes => [:id, :privilege_id, :privilege_label]])
     end
 end
