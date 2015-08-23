@@ -2,6 +2,7 @@
 ~~~
 ref: http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json
 ref: http://stackoverflow.com/questions/4443218/ror-nested-include-to-include-sub-resources-in-to-xml-to-json
+ref: http://stackoverflow.com/questions/16426398/active-admin-install-with-rails-4
 ~~~
 render json: @people, :include => [:roles => { include: [:privileges] } ]
 ~~~
@@ -78,3 +79,13 @@ member.posts.first.title # => 'Kari, the awesome Ruby documentation browser!'
 member.posts.second.title # => 'The egalitarian assumption of the modern citizen'
 ~~~
 - accepts_nested_attributes_for :posts mapping posts_attributes
+
+# RailsAdmin
+~~~
+ref: http://stackoverflow.com/questions/5149773/how-to-create-the-first-admin-user-cancan-and-devise
+ref: http://127.0.0.1:3000/admin
+~~~
+- Create First AdminUser.
+~~~
+AdminUser.create!(:email=>'test@test.com',:password=>'password')
+~~~
