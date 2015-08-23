@@ -80,12 +80,27 @@ member.posts.second.title # => 'The egalitarian assumption of the modern citizen
 ~~~
 - accepts_nested_attributes_for :posts mapping posts_attributes
 
-# RailsAdmin
+# ActiveAdmin
 ~~~
 ref: http://stackoverflow.com/questions/5149773/how-to-create-the-first-admin-user-cancan-and-devise
 ref: http://127.0.0.1:3000/admin
 ~~~
 - Create First AdminUser.
 ~~~
+rails generate active_admin:install 
+rake db:migrate
+~~~
+~~~
 AdminUser.create!(:email=>'test@test.com',:password=>'password')
+~~~
+
+# RailsAdmin(推薦)
+~~~
+ref: https://github.com/sferik/rails_admin
+~~~
+~~~
+gem 'rails_admin'
+~~~
+~~~
+rails g rails_admin:install
 ~~~

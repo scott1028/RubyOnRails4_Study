@@ -43,6 +43,9 @@ group :development, :test do
   gem 'spring'
 end
 
-# Add RailsAdmin
+# Add ActiveAdmin
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+
+# Add RailsAdmin
+gem 'rails_admin'
