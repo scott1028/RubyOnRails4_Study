@@ -83,6 +83,7 @@ member.posts.second.title # => 'The egalitarian assumption of the modern citizen
 # Override JSON Template
 ~~~
 ref: http://stackoverflow.com/questions/2088280/in-rails-how-do-you-render-json-using-a-view
+ref: http://guides.rubyonrails.org/layouts_and_rendering.html#wrapping-it-up
 ~~~
 ~~~
 format.json render :partial => "users/show.json"
