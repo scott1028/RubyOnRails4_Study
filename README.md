@@ -85,6 +85,9 @@ member.posts.second.title # => 'The egalitarian assumption of the modern citizen
 ref: http://stackoverflow.com/questions/5149773/how-to-create-the-first-admin-user-cancan-and-devise
 ref: http://127.0.0.1:3000/admin
 ~~~
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+~~~
 - Create First AdminUser.
 ~~~
 rails generate active_admin:install 
