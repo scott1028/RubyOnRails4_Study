@@ -80,6 +80,14 @@ member.posts.second.title # => 'The egalitarian assumption of the modern citizen
 ~~~
 - accepts_nested_attributes_for :posts mapping posts_attributes
 
+# Override JSON Template
+~~~
+ref: http://stackoverflow.com/questions/2088280/in-rails-how-do-you-render-json-using-a-view
+~~~
+~~~
+format.json render :partial => "users/show.json"
+~~~
+
 # ActiveAdmin
 ~~~
 ref: http://stackoverflow.com/questions/5149773/how-to-create-the-first-admin-user-cancan-and-devise
