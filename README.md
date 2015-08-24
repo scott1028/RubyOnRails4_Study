@@ -107,3 +107,7 @@ gem 'rails_admin'
 ~~~
 rails g rails_admin:install
 ~~~
+# Rich Plugin
+~~~
+ref: https://github.com/kreativgebiet/rich
+~~~
